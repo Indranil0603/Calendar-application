@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="calendar">
+            <div class="calendar-header">
+                <span id="current-month">Loading...</span>
+                <button class="nav-button" onclick="changeMonth(-1)">&lt;</button>
+                <button class="nav-button" onclick="changeMonth(1)">&gt;</button>
+            </div>
+            <div class="calendar-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-days">
+                        <!-- Days will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="activity">
+            <div class="activity-header">
+                <span id="activity-heading">Activity</span>
+                <span id="selected-date"></span>
+            </div>
+            <hr class="header-line">
+            <div class="activity-body">
+                <div id="activity-details">
+                    <!-- Activity details will be dynamically inserted here -->
+                </div>
+                <button class="add-button" onclick="showAddActivityForm(document.getElementById('selected-date').textContent)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Activity Modal -->
+    <div id="addActivityModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick=closeAddActivityForm()>&times;</span>
+            <h2>Add Activity</h2>
+            <form id="activityForm" method="post" action="{% url 'add_activity' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const addActivityUrl = "{% url 'add_activity' %}";
+        window.activities = {{ activity_dict|safe }};
+    </script>
+    <script src="{% static 'js/calendar.js' %}"></script>
+</body>
+</html>

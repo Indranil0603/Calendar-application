@@ -1,0 +1,232 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    width: 900px;
+}
+
+/* Calendar Styles */
+.calendar {
+    padding: 20px;
+    width: 70%;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.calendar-header #current-month {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.nav-button {
+    background-color: #34495e;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.nav-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.calendar-body {
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: none;
+    width: 14.28%;
+    height: 60px;
+    position: relative;
+}
+
+th {
+    padding: 5px 0;
+    background-color: transparent;
+}
+
+.calendar-cell {
+    position: relative;
+}
+
+.calendar-cell .red-dot {
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px; /* Position the dot below the date text */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Activity Panel Styles */
+.activity {
+    padding: 20px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ccc;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.activity-header #activity-heading {
+    font-size: 1.2em;
+}
+
+.activity-header #selected-date {
+    font-size: 1em;
+}
+
+.header-line {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+.activity-body {
+    margin-top: 10px;
+}
+
+.activity-body h3 {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+}
+
+.activity-body p {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+}
+
+.activity-body .activity-title {
+    font-weight: bold;
+}
+
+.activity-body .activity-description {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Buttons */
+.add-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styles */
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
